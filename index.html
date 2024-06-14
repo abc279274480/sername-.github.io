@@ -1,28 +1,25 @@
-addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request))
-})
+<html>
+<head>
+    <title>URL Redirection</title>
+</head>
+<body>
+    <script>
+        addEventListener('DOMContentLoaded', event => {
+            handleRequest();
+        });
 
-async function handleRequest(request) {
-
-  let destinationUrl;
-
-  var urls = [
-    'https://google.com',
-    'https://youtube.com',
-    'https://cctv.com'
-];
-
-var timestamp = Date.now();
-var randomUrl = urls[Math.floor(Math.random() * urls.length)];
-var tmpurl = `${randomUrl}`;
-let response = new Response(null, {
-  status: 301,
-  statusText: 'Moved Permanently',
-  headers: {
-    Location: tmpurl,
-    'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0'
-  }
-});
-
-return response;
-}
+        async function handleRequest() {
+            let destinationUrl;
+            var urls = [
+                'https://www.google.com',
+                'http://www.youtube.com',
+                'https://www.bing.com'
+            ];
+            var timestamp = Date.now();
+            var randomUrl = urls[Math.floor(Math.random() * urls.length)];
+            var tmpurl = ${randomUrl};
+            window.location.replace(tmpurl);
+        }
+    </script>
+</body>
+</html>
