@@ -1,25 +1,27 @@
-<html>
-<head>
-    <title>URL Redirection</title>
-</head>
-<body>
     <script>
-        addEventListener('DOMContentLoaded', event => {
-            handleRequest();
-        });
-
-        async function handleRequest() {
-            let destinationUrl;
-            var urls = [
-                'https://www.google.com',
-                'http://www.youtube.com',
-                'https://www.bing.com'
-            ];
-            var timestamp = Date.now();
-            var randomUrl = urls[Math.floor(Math.random() * urls.length)];
-            var tmpurl = ${randomUrl};
-            window.location.replace(tmpurl);
-        }
+			       // 假设你有一个域名列表  
+			const domainList = [  
+			    'https://www.google.com',  
+			    'http://www.youtube.com',  
+			    'https://www.bing.com',  
+			    // ... 添加更多域名  
+			];  
+			  
+			// 编写一个函数来随机选择一个域名并跳转  
+			function randomRedirect() {  
+			    // 获取域名列表的长度  
+			    const length = domainList.length;  
+			      
+			    // 生成一个随机索引  
+			    const randomIndex = Math.floor(Math.random() * length);  
+			      
+			    // 获取随机索引对应的域名  
+			    const randomDomain = domainList[randomIndex];  
+			      
+			    // 重定向到该域名  
+			    window.location.href = randomDomain;  
+			}  
+			  
+			// 调用函数以触发随机跳转  
+			randomRedirect();
     </script>
-</body>
-</html>
